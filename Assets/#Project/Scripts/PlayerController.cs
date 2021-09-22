@@ -1,18 +1,48 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public CharacterController charactController;
+    public Vector2 moveVector;
+    public float movementSpeed;
+
+    
+    public void Move(InputAction.CallbackContext context) // MOUVEMENT
     {
-        
+        moveVector = context.ReadValue<Vector2>(); // A checker
+    }
+    
+    public void Pause(InputAction.CallbackContext context) // PAUSE - MENU?
+    {
+        //Ajouter la pause
+    }
+    
+    public void Interaction(InputAction.CallbackContext context) // INTERACTION - ACTION
+    {
+        // CLick qui déclenche l'interaction avec objet
+        // Utiliser son arme
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Weapon(InputAction.CallbackContext context) // CHANGE WEAPON
     {
-        
+        //switch des armes
+        // Trois types d'armes
+        // Sprinkler / Canon / Cutter -> only Sprinkler si j'arrive pas plus
+    }
+
+    // public void CameraMoving(InputAction.CallbackContext context)
+    // {
+    //     // Fonction qui consiste à manipuler la direction du personnage par le biais de la souris
+    //     // Pas sur de le faire
+    // }
+
+    void Update()
+    {    
+        Vector2 movement = new Vector2(moveVector.x,moveVector.y) * movementSpeed;
+
+        charactController.Move(movement * Time.deltaTime);
     }
 }
