@@ -18,6 +18,14 @@ public class PlayerController : MonoBehaviour
     public void Pause(InputAction.CallbackContext context) // PAUSE - MENU?
     {
         //Ajouter la pause
+        if(Time.timeScale == 1f)
+		{
+			Time.timeScale = 0f;
+		}
+		else(Time.timeScale == 0f)
+		{
+			Time.timeScale = 1f;
+		}
     }
     
     public void Interaction(InputAction.CallbackContext context) // INTERACTION - ACTION
