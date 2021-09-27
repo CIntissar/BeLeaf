@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
 		{
 			Time.timeScale = 0f;
 		}
-		else(Time.timeScale == 0f)
+		else if(Time.timeScale == 0f)
 		{
 			Time.timeScale = 1f;
 		}
