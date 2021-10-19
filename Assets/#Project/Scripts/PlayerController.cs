@@ -1,56 +1,57 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public CharacterController charactController;
-    public Vector2 moveVector;
-    public float movementSpeed;
+    private PlayerActions playerInput;
+    private Rigidbody2D rb;
+    public bool isPaused = false; // pour l'UI
 
-    
-    public void Move(InputAction.CallbackContext context) // MOUVEMENT
+    [SerializeField] private float speed = 10.0f;
+
+    private void Awake() 
     {
-        moveVector = context.ReadValue<Vector2>(); // A checker
+        playerInput = new PlayerActions();
+        rb = GetComponent<Rigidbody2D>();            
     }
     
-    public void Pause(InputAction.CallbackContext context) // PAUSE - MENU?
+    private void OnEnable() 
     {
-        //Ajouter la pause
-        if(Time.timeScale == 1f)
+        playerInput.Enable();
+    }
+    
+    private void OnDisable() 
+    {
+        playerInput.Disable();
+    }
+
+
+    private void Pause()
+    {
+        if(Time.timeScale == 1f && isPaused == false)
 		{
 			Time.timeScale = 0f;
 		}
-		else if(Time.timeScale == 0f)
+		else if(Time.timeScale == 0f && isPaused == true)
 		{
 			Time.timeScale = 1f;
 		}
     }
-    
-    public void Interaction(InputAction.CallbackContext context) // INTERACTION - ACTION
+
+    void FixedUpdate() // utilisation de la physics
     {
-        // CLick qui déclenche l'interaction avec objet
-        // Utiliser son arme
+        Vector2 moveInput = playerInput.Gameplay.Move.ReadValue<Vector2>();
+        rb.velocity = moveInput * speed;
+
     }
 
-    public void Weapon(InputAction.CallbackContext context) // CHANGE WEAPON
+    private void Update() 
     {
-        //switch des armes
-        // Trois types d'armes
-        // Sprinkler / Canon / Cutter -> only Sprinkler si j'arrive pas plus
-    }
-
-    // public void CameraMoving(InputAction.CallbackContext context)
-    // {
-    //     // Fonction qui consiste à manipuler la direction du personnage par le biais de la souris
-    //     // Pas sur de le faire
-    // }
-
-    void Update()
-    {    
-        Vector2 movement = new Vector2(moveVector.x,moveVector.y) * movementSpeed;
-
-        charactController.Move(movement * Time.deltaTime);
+        if(playerInput.Gameplay.Pause.triggered)
+        {
+            Pause();
+            isPaused = !isPaused;
+        }
     }
 }
