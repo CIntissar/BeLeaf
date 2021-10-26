@@ -10,8 +10,7 @@ public class Monster : MonoBehaviour
     public Transform targetCharacter;
     public Vector3 actualDestination;
     public int indexNextDestination = 0;
-    public bool isCharacterClose;
-    
+   
 
     void Start()
     {
@@ -21,24 +20,22 @@ public class Monster : MonoBehaviour
 
     void Update()
     {
-
         
-        //Condition si le personnage est proche
-        // if(agent.remainingDistance <= agent.stoppingDistance)
-        // {
-        //     //action contre le personnage
-        // }
     }
 
-    protected virtual void ChaseCharacter()
+    private void OnTriggerEnter(Collider other) 
     {
-        // if()
-        // {
-        //     actualDestination = targetCharacter.position;  // on peut obtenir un point en Vector3 qui sera sa destination actuelle
-        //     agent.SetDestination(actualDestination); 
-
-        // }
+        //active animation attack
+        Debug.Log("DIE");
     }
 
+    private void OnTriggerExit(Collider other) 
+    {
+        //stop animation
+        Debug.Log("Nobody's here");
+    }
 
 }
+
+
+

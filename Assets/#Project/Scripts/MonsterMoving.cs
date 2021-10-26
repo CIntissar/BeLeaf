@@ -17,7 +17,7 @@ public class MonsterMoving : Monster
         }
     }
 
-    protected virtual void NextDestination()
+    public void NextDestination()
     {
         actualDestination = targetPoints[indexNextDestination].GivePoint();  // on peut obtenir un point en Vector3 qui sera sa destination actuelle
         agent.SetDestination(actualDestination); // il va dire à l'agent, sa destination à chaque frame.
@@ -29,4 +29,15 @@ public class MonsterMoving : Monster
             indexNextDestination = 0;
         }
     }
+    private void OnTriggerEnter(Collider other) 
+    {
+        actualDestination = targetCharacter.position;  
+        agent.SetDestination(actualDestination); 
+    }
+    private void OnTriggerExit(Collider other) 
+    {
+        NextDestination();
+    }
+
+
 }
