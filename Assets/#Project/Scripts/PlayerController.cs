@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private PlayerActions playerInput;
-    private Rigidbody2D rb;
+    private Rigidbody rb;
     public bool isPaused = false; // pour l'UI
 
     [SerializeField] private float speed = 10.0f;
@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     private void Awake() 
     {
         playerInput = new PlayerActions();
-        rb = GetComponent<Rigidbody2D>();            
+        rb = GetComponent<Rigidbody>();            
     }
     
     private void OnEnable() 
@@ -42,7 +42,8 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate() // utilisation de la physics
     {
         Vector2 moveInput = playerInput.Gameplay.Move.ReadValue<Vector2>();
-        rb.velocity = moveInput * speed;
+        Vector3 movement = new Vector3(moveInput.x, 0 , moveInput.y);
+        rb.velocity = movement * speed;
 
     }
 
