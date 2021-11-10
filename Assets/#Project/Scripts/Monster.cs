@@ -16,7 +16,7 @@ public class Monster : MonoBehaviour
 
     public SeedShoot seedShoot;
    
-   private Coroutine co;
+    private Coroutine co;
 
     void Start()
     {
