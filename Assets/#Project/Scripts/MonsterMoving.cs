@@ -15,6 +15,20 @@ public class MonsterMoving : Monster
         {
             NextDestination();
         }
+
+        if(Vector3.Distance(playerStatus.transform.position, transform.position)<= playerStatus.distance)
+        {
+            //active animation attack
+            actualDestination = targetCharacter.position;  
+            agent.SetDestination(actualDestination); 
+
+        }
+        if(Vector3.Distance(playerStatus.transform.position, transform.position) > playerStatus.distance)
+        {
+            //stop animation -> retour idle
+            NextDestination();
+
+        }
     }
 
     public void NextDestination()
@@ -28,15 +42,6 @@ public class MonsterMoving : Monster
         {
             indexNextDestination = 0;
         }
-    }
-    private void OnTriggerEnter(Collider other) 
-    {
-        actualDestination = targetCharacter.position;  
-        agent.SetDestination(actualDestination); 
-    }
-    private void OnTriggerExit(Collider other) 
-    {
-        NextDestination();
     }
 
 

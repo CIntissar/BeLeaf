@@ -9,6 +9,21 @@ EditorBuildSettings:
     path: Assets/Scenes/MenuScene.unity
     guid: adeac2303ba3b234aaca0763f00eaa6a
   - enabled: 1
+    path: Assets/Scenes/TutorialScene.unity
+    guid: 14b015be49e667449b46e1a6f8200aa5
+  - enabled: 1
+    path: Assets/Scenes/DungeonOneScene.unity
+    guid: 25dfc98b4be59ce4799075d7c9b6c8af
+  - enabled: 1
+    path: Assets/Scenes/BossScene.unity
+    guid: 3767aabcde515fe4e8f9a8243eb88681
+  - enabled: 1
+    path: Assets/Scenes/GameOverScene.unity
+    guid: 4fafbc72714f39f4f99c553f2a9d35ea
+  - enabled: 1
+    path: Assets/Scenes/EndScene.unity
+    guid: 159117ceb9536464d9e59148cc3d4e31
+  - enabled: 0
     path: Assets/Scenes/WIPScene.unity
     guid: 85bd8855700ce3c4b99520520e19f431
   m_configObjects:

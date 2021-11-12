@@ -11,6 +11,7 @@ public class SeedShoot : MonoBehaviour
     public float seedSpeed = 10f;
     public float delay = 1f;
     public float deathDelay = 2f;
+    private PlayerStatus playerStatus;
 
     public IEnumerator MonsterShoot()
     {
@@ -33,5 +34,7 @@ public class SeedShoot : MonoBehaviour
         }
         seeds.Clear();
     }
+
+
 
 }
