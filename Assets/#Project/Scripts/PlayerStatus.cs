@@ -7,10 +7,22 @@ public class PlayerStatus : MonoBehaviour
 {
     public float distance = 2.5f;
     public int lifes = 3;
+    public float pushStrengh = 1f;
+    public bool isInvulnerable  = false;
+    private int damage = 1;
+
+    [SerializeField]
+    private float timeInvunerability = 1.5f;
+
+    [SerializeField]
+    private float deltaTimeInvunerability = 0.15f;
+
+    [SerializeField]
+    private GameObject spriteModel;
 
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -19,21 +31,29 @@ public class PlayerStatus : MonoBehaviour
         
     }
 
-    public void LooseLife()
-    {   
-        lifes--;
-
-        if(lifes < 0)
+    private void OnTriggerEnter(Collider other) 
+    {
+        if(other.CompareTag("Seed") || other.CompareTag("Enemy"))
         {
+            Debug.Log("HIT!!!");
+            LooseLife(); 
+        }
+    }
+    public void LooseLife()
+    {       
+        lifes -= damage;
+        //Animation de coup
+        StartCoroutine("OnInvulnerability");
+        Debug.Log(lifes);
+        
+        if(lifes <= 0)
+        {
+            lifes = 0;
             //Animation de mort
             SceneManager.LoadScene("GameOverScene");
             Debug.Log("You're dead");
         }
-        else
-        {
-            //Animation de coup
-            Debug.Log(lifes);
-        }
+                
     }
 
     private void OnDrawGizmosSelected() {
@@ -41,12 +61,36 @@ public class PlayerStatus : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, distance);
     }
 
-    private void OnTriggerEnter(Collider other) 
+
+    IEnumerator OnInvulnerability()
     {
-        if(other.CompareTag("Seed"))
+        Debug.Log("I'M UNSTOPPABLE!");
+        isInvulnerable = true;
+        damage = 0;
+
+        for(float i = 0; i < timeInvunerability; i += deltaTimeInvunerability)
         {
-            Debug.Log("HEADSHOT!!!");
-            LooseLife(); // Nom du script suivi de la méthode!!!
+            if(spriteModel.transform.localScale == Vector3.one)
+            {
+                ScaleModelTo(Vector3.zero);
+            }
+            else
+            {
+                ScaleModelTo(Vector3.one);
+            }
+
+            yield return new WaitForSeconds(deltaTimeInvunerability); //how long player invulnerable
         }
+
+        Debug.Log("I'm weak again...");
+        ScaleModelTo(Vector3.one);
+        damage = 1;
+        isInvulnerable = false;
     }
+
+    private void ScaleModelTo(Vector3 scale)
+    {
+        spriteModel.transform.localScale = scale;
+    }
+
 }

@@ -4,8 +4,31 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class EnteringDungeon : MonoBehaviour
-{    private void OnTriggerEnter(Collider other) 
+{   
+    public Animator animator;
+    public string levelToLoad;
+    public void FadeToLevel(string name)
     {
-        SceneManager.LoadScene("DungeonOneScene");
+        levelToLoad = name;
+        animator.SetTrigger("FadeOut");
+    }
+
+    public void OnFadeComplete()
+    {
+        SceneManager.LoadScene(levelToLoad);
+    }
+    private void OnTriggerEnter(Collider other) 
+    {
+        if(other.CompareTag("Player"))
+        {
+            FadeToLevel(levelToLoad);
+        }
+    }
+
+    private void OnDrawGizmos() // Pour dessiner un Gizmos sur un empty object
+    {
+        Vector3 cubeSize = new Vector3(3.8f,0.5f,0.5f);
+        Gizmos.color = new Color(0.5f,0.5f,0.5f,0.4f); 
+        Gizmos.DrawCube(transform.position,(cubeSize)); // => (position, longueur)
     }
 }

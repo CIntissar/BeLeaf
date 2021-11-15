@@ -13,7 +13,7 @@ public enum MonsterState
 [RequireComponent(typeof(NavMeshAgent))]
 public class Monster : MonoBehaviour
 {
-    public MonsterState currentstate;
+    public MonsterState currentState;
     public NavMeshAgent agent;
     public Transform targetCharacter;
 
@@ -25,14 +25,14 @@ public class Monster : MonoBehaviour
     public SeedShoot seedShoot;
    
     private Coroutine co;
-    protected PlayerStatus playerStatus;
 
-    public float healthPointM = 5;
-    public float happinessPoint = 0;
+    public float health = 5;
+    public float happiness = 0;
+    protected PlayerStatus playerStatus;
 
     void Start()
     {
-        currentstate = MonsterState.normal;
+        currentState = MonsterState.normal;
         agent = GetComponent<NavMeshAgent>();
         playerStatus = FindObjectOfType<PlayerStatus>();
     }
@@ -51,32 +51,19 @@ public class Monster : MonoBehaviour
             co =null;
         }
 
-        if(happinessPoint == 5)
+        if(happiness == 5)
         {
-            currentstate = MonsterState.happy;
+            currentState = MonsterState.happy;
         }
-        else if(healthPointM == 0)
+        else if(health == 0)
         {
-            currentstate = MonsterState.ko;
+            currentState = MonsterState.ko;
         }
         else
         {
-            currentstate = MonsterState.normal;
+            currentState = MonsterState.normal;
         }
     }
-
-        protected void OnTriggerEnter(Collider other) 
-        {
-            //animation de dégat
-            playerStatus.LooseLife();
-            Debug.Log("HEADSHOT");
-        }
-
-
-
-
-
-
 
 }
 

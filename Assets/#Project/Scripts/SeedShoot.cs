@@ -9,7 +9,7 @@ public class SeedShoot : MonoBehaviour
     public GameObject seedPrefab;
     public Transform seedOriginTransform; // pour avoir la position nécessaire à la création des instances. Peut etre fait avec un gameObject.
     public float seedSpeed = 10f;
-    public float delay = 1f;
+    public float delay = 0.5f;
     public float deathDelay = 2f;
     private PlayerStatus playerStatus;
 
