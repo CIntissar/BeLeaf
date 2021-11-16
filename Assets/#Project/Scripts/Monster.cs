@@ -5,7 +5,9 @@ using UnityEngine.AI;
 
 public enum MonsterState
 {
-    normal,
+    idle,
+    walk,
+    attack,
     happy,
     ko
 
@@ -32,13 +34,14 @@ public class Monster : MonoBehaviour
 
     void Start()
     {
-        currentState = MonsterState.normal;
         agent = GetComponent<NavMeshAgent>();
         playerStatus = FindObjectOfType<PlayerStatus>();
+        currentState = MonsterState.idle;
     }
 
     void Update()
     {
+
         if(co==null && Vector3.Distance(playerStatus.transform.position, transform.position)<= playerStatus.distance)
         {
             //active animation attack
@@ -61,11 +64,10 @@ public class Monster : MonoBehaviour
         }
         else
         {
-            currentState = MonsterState.normal;
+            currentState = MonsterState.idle;
         }
     }
 
 }
-
 
 
