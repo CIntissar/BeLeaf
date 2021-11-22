@@ -18,7 +18,7 @@ public class Monster : MonoBehaviour
     public MonsterState currentState;
     public NavMeshAgent agent;
     public Transform targetCharacter;
-
+                                                                                                                                                                                                                                                                                                                                                                                         
     [HideInInspector]
     public Vector3 actualDestination;
     [HideInInspector]

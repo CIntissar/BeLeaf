@@ -20,17 +20,6 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField]
     private GameObject spriteModel;
 
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter(Collider other) 
     {
         if(other.CompareTag("Seed") || other.CompareTag("Enemy"))
@@ -39,6 +28,12 @@ public class PlayerStatus : MonoBehaviour
             LooseLife(); 
         }
     }
+
+    private void OnDrawGizmosSelected() {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, distance);
+    }
+
     public void LooseLife()
     {       
         lifes -= damage;
@@ -55,12 +50,6 @@ public class PlayerStatus : MonoBehaviour
         }
                 
     }
-
-    private void OnDrawGizmosSelected() {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, distance);
-    }
-
 
     IEnumerator OnInvulnerability()
     {

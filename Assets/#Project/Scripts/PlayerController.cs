@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private PlayerActions playerInput;
-    private SprinklerBehavior sprinkle;
+    public SprinklerBehavior sprinkle;
     public CanonBehavior canon;
     private Rigidbody rb;
     public bool isPaused = false; // pour l'UI

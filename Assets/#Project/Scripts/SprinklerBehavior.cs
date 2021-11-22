@@ -15,6 +15,10 @@ public class SprinklerBehavior : MonoBehaviour
         bulletRigidbody.velocity = waterOriginTransform.right * waterSpeed;
     }
 
+    private void OnTriggerExit(Collider other) 
+    {
+        Destroy(gameObject);
+    }
 
 
 }
