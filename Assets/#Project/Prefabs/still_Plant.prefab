@@ -163,7 +163,6 @@ MonoBehaviour:
   seedOriginTransform: {fileID: 8430543630525716863}
   seedSpeed: 2
   delay: 1
-  deathDelay: 2
 --- !u!1 &8430543630525716862
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,7 +209,6 @@ GameObject:
   - component: {fileID: 8430543631037899231}
   - component: {fileID: 8430543631037899230}
   - component: {fileID: 8430543631037899201}
-  - component: {fileID: 8430543631037899206}
   m_Layer: 0
   m_Name: still_Plant
   m_TagString: Enemy
@@ -351,8 +349,8 @@ MonoBehaviour:
   actualDestination: {x: 0, y: 0, z: 0}
   indexNextDestination: 0
   seedShoot: {fileID: 8430543630181227498}
-  healthPointM: 5
-  happinessPoint: 0
+  health: 5
+  happiness: 0
 --- !u!114 &8430543631037899201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -366,16 +364,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pushStrengh: 1.25
---- !u!65 &8430543631037899206
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8430543631037899225}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}

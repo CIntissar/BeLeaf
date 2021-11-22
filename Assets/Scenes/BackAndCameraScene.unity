@@ -12752,18 +12752,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8430543631037899206, guid: d7b8d83bde7e4104e927eef216ebdfd5, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8430543631037899225, guid: d7b8d83bde7e4104e927eef216ebdfd5, type: 3}
       propertyPath: m_Name
       value: still_Plant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8430543631037899228, guid: d7b8d83bde7e4104e927eef216ebdfd5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8430543631037899228, guid: d7b8d83bde7e4104e927eef216ebdfd5, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8430543631037899230, guid: d7b8d83bde7e4104e927eef216ebdfd5, type: 3}
       propertyPath: targetCharacter
       value: 
       objectReference: {fileID: 512260736}
-    m_RemovedComponents:
-    - {fileID: 8430543631037899206, guid: d7b8d83bde7e4104e927eef216ebdfd5, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7b8d83bde7e4104e927eef216ebdfd5, type: 3}

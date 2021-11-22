@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Seed
   - Enemy
+  - Feed
+  - Water
   layers:
   - Default
   - TransparentFX

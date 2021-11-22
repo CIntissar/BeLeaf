@@ -39,7 +39,7 @@ public class PlayerStatus : MonoBehaviour
         lifes -= damage;
         //Animation de coup
         StartCoroutine("OnInvulnerability");
-        Debug.Log(lifes);
+        Debug.Log("HP: " + lifes);
         
         if(lifes <= 0)
         {
