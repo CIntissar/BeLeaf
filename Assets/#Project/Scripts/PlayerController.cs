@@ -20,6 +20,10 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();            
     }
     
+    private void Start() 
+    {
+        //animator = GetComponent<Animator>();
+    }
     private void OnEnable() 
     {
         playerInput.Enable();
@@ -53,12 +57,43 @@ public class PlayerController : MonoBehaviour
 
     private void Update() 
     {
+        /*
+        A METTRE:
+
+        FLIP ANIMATION!
+
+        // if(speed.x < 0)
+        // {
+        //     if(animator != null)
+        //     {
+        //         animator.SetBool("whenRight", false);
+        //     }
+        //     else
+        //     {
+        //         spriteR.flipX = true;
+        //     }
+        // }
+        // else if(speed.x > 0)
+        // {
+        //     if(animator != null)
+        //     {
+        //         animator.SetBool("whenRight", true);
+        //     }
+        //     else
+        //     {
+        //         spriteR.flipX = false;
+        //     }
+        // }  
+        */
+
+        // PAUSE
         if(playerInput.Gameplay.Pause.triggered)
         {
             Pause();
             isPaused = !isPaused;
         }
 
+        // WEAPON - SPRINKLER
         if(playerInput.Gameplay.Weapon_Sprinkler.triggered)
         {
             Debug.Log("WET!");
@@ -67,7 +102,7 @@ public class PlayerController : MonoBehaviour
             transform.GetChild(1).gameObject.SetActive(false); // canon
             canonOn = false;
         }
-
+        // WEAPON - CANON
         if(playerInput.Gameplay.Weapon_Canon.triggered)
         {
             Debug.Log("CRISTALLIZE!");
@@ -76,7 +111,11 @@ public class PlayerController : MonoBehaviour
             transform.GetChild(0).gameObject.SetActive(false); // sprinkler
             sprinklerOn = false; 
         }
+        // WEAPON - CUTTER
 
+        // ...
+
+        // WEAPON - INTERACTION
         if(playerInput.Gameplay.Interaction.triggered)
         {
             if(sprinklerOn == true)

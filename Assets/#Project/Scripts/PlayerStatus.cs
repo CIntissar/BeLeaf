@@ -19,7 +19,7 @@ public class PlayerStatus : MonoBehaviour
 
     [SerializeField]
     private GameObject spriteModel;
-
+    
     private void OnTriggerEnter(Collider other) 
     {
         if(other.CompareTag("Seed") || other.CompareTag("Enemy"))
