@@ -5,24 +5,33 @@ using UnityEngine.SceneManagement;
 
 public class LevelsManager : MonoBehaviour
 {
-    public int[] ennemis = new int[6];
+    public SpriteRenderer spriteRenderer;
     void Start()
     {
-        
+        this.spriteRenderer = GetComponent<SpriteRenderer>();        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(ennemis.Length < 0)
-        {
-            SceneManager.LoadScene("BossScene");
-        }
         /*else if( boss vaincu )
         {
             SceneManager.LoadScene("EndScene");
         }
         */
+        if(GameObject.FindGameObjectsWithTag("Enemy").Length <= 0)
+        {
+            this.spriteRenderer.enabled = true; 
+            this.GetComponent<BoxCollider>().isTrigger = true;
+        }
+
+    }
+    void OnTriggerEnter(Collider other) 
+    {
+        if(other.CompareTag("Player"))
+        {
+            SceneManager.LoadScene("BossScene");
+        }
     }
 
 }

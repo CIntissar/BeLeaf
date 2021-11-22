@@ -3,16 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public enum MonsterState
-{
-    idle,
-    walk,
-    hurt,
-    attack,
-    happy,
-    ko
 
-}
 [RequireComponent(typeof(NavMeshAgent))]
 public class Monster : MonoBehaviour
 {
@@ -70,6 +61,10 @@ public class Monster : MonoBehaviour
             health = 0f;
             //Animation de mort
             currentState = MonsterState.ko;
+            if (gameObject.tag=="ennemy")
+            { 
+                gameObject.tag="KO"; 
+            }
         }
                 
     }
@@ -86,6 +81,10 @@ public class Monster : MonoBehaviour
             damagePoint = 0f;
             //Animation de joie
             currentState = MonsterState.happy;
+            if (gameObject.tag=="Enemy")
+            { 
+                gameObject.tag="Happy"; 
+            }
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -93,14 +92,14 @@ public class Monster : MonoBehaviour
         Debug.Log("SHINE");
         if(other.CompareTag("Water"))
         {
-            healingPoint += 2f;
+            healingPoint = 2f;
             damagePoint = 0f;
             Destroy(other.gameObject);
         }
         else if(other.CompareTag("Feed")) 
         {
-            healingPoint += 2f;
-            damagePoint += 1f;
+            healingPoint = 2f;
+            damagePoint = 1f;
             Destroy(other.gameObject);
         }
         /*else if(|| other.CompareTag("Cut"))
@@ -112,9 +111,6 @@ public class Monster : MonoBehaviour
         */
         TakeDamage();
         HealByPlayer();
-        
-        
-
     }
 
 }

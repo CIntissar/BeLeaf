@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Feed
   - Water
+  - KO
+  - Happy
   layers:
   - Default
   - TransparentFX
