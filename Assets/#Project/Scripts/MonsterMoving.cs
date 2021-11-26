@@ -18,7 +18,7 @@ public class MonsterMoving : Monster
 
         if(Vector3.Distance(playerStatus.transform.position, transform.position)<= playerStatus.distance)
         {
-            currentState = MonsterState.attack;
+            currentState = MonsterStatus.attack;
             //active animation attack
             actualDestination = targetCharacter.position;  
             agent.SetDestination(actualDestination); 
@@ -26,7 +26,7 @@ public class MonsterMoving : Monster
         }
         if(Vector3.Distance(playerStatus.transform.position, transform.position) > playerStatus.distance)
         {
-            currentState = MonsterState.idle;
+            currentState = MonsterStatus.idle;
             //stop animation -> retour idle
             NextDestination();
         }
@@ -34,7 +34,7 @@ public class MonsterMoving : Monster
 
     public void NextDestination()
     {
-        currentState = MonsterState.walk;
+        currentState = MonsterStatus.walk;
         actualDestination = targetPoints[indexNextDestination].GivePoint();  // on peut obtenir un point en Vector3 qui sera sa destination actuelle
         agent.SetDestination(actualDestination); // il va dire à l'agent, sa destination à chaque frame.
 

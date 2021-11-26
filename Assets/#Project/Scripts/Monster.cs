@@ -7,7 +7,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class Monster : MonoBehaviour
 {
-    public MonsterState currentState;
+    public MonsterStatus currentState;
     public NavMeshAgent agent;
     public Transform targetCharacter;
                                                                                                                                                                                                                                                                                                                                                                                          
@@ -30,7 +30,7 @@ public class Monster : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         playerStatus = FindObjectOfType<PlayerStatus>();
-        currentState = MonsterState.idle;
+        currentState = MonsterStatus.idle;
     }
 
     void Update()
@@ -60,7 +60,7 @@ public class Monster : MonoBehaviour
         {
             health = 0f;
             //Animation de mort
-            currentState = MonsterState.ko;
+            currentState = MonsterStatus.ko;
             if (gameObject.tag=="ennemy")
             { 
                 gameObject.tag="KO"; 
@@ -80,7 +80,7 @@ public class Monster : MonoBehaviour
             health = 5f;
             damagePoint = 0f;
             //Animation de joie
-            currentState = MonsterState.happy;
+            currentState = MonsterStatus.happy;
             if (gameObject.tag=="Enemy")
             { 
                 gameObject.tag="Happy"; 
