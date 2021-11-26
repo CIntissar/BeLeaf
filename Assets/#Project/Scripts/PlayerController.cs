@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public bool isPaused = false; // pour l'UI
     public bool sprinklerOn;
     public bool canonOn;
+    public Animator animator;
+    public SpriteRenderer spriteR;
    
     [SerializeField] private float speed = 10.0f;
 
@@ -22,7 +24,7 @@ public class PlayerController : MonoBehaviour
     
     private void Start() 
     {
-        //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
     private void OnEnable() 
     {
@@ -52,39 +54,12 @@ public class PlayerController : MonoBehaviour
         Vector2 moveInput = playerInput.Gameplay.Move.ReadValue<Vector2>();
         Vector3 movement = new Vector3(moveInput.x, 0 , moveInput.y);
         rb.velocity = movement * speed;
+        FlipSprite(moveInput);
 
     }
 
     private void Update() 
-    {
-        /*
-        A METTRE:
-
-        FLIP ANIMATION!
-
-        // if(speed.x < 0)
-        // {
-        //     if(animator != null)
-        //     {
-        //         animator.SetBool("whenRight", false);
-        //     }
-        //     else
-        //     {
-        //         spriteR.flipX = true;
-        //     }
-        // }
-        // else if(speed.x > 0)
-        // {
-        //     if(animator != null)
-        //     {
-        //         animator.SetBool("whenRight", true);
-        //     }
-        //     else
-        //     {
-        //         spriteR.flipX = false;
-        //     }
-        // }  
-        */
+    {  
 
         // PAUSE
         if(playerInput.Gameplay.Pause.triggered)
@@ -137,5 +112,36 @@ public class PlayerController : MonoBehaviour
         }
 
 
+    }
+
+    void FlipSprite(Vector2 moveImput)
+    {
+        
+        //FLIP ANIMATION!
+        
+        if(moveImput.x < 0)
+        {
+            if(animator != null)
+            {
+                animator.SetBool("turnRight", false);
+                //animation à flip!
+            }
+            else
+            {
+                spriteR.flipX = true;
+            }
+        }
+        else if(moveImput.x > 0)
+        {
+            if(animator != null)
+            {
+                animator.SetBool("turnRight", true);
+                //animation à flip!
+            }
+            else
+            {
+                spriteR.flipX = false;
+            }
+        }
     }
 }

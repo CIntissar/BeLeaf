@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerStatus : MonoBehaviour
 {
+    //public Slider slider; slider pour les points de vie!
+    //public Gradient gradient; Si je veux faire un gradient au niveau des couleurs
+    // Voir vidéo How to make a Health Bar par Brackeys
     public float distance = 2.5f;
-    public int lifes = 3;
+    public int lifes = 3; // Redéfinir à l'avenir
     public float pushStrengh = 1f;
     public bool isInvulnerable  = false;
     private int damage = 1;

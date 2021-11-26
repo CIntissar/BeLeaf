@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelsManager : MonoBehaviour
 {
-    public SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRenderer;
     void Start()
     {
         this.spriteRenderer = GetComponent<SpriteRenderer>();        

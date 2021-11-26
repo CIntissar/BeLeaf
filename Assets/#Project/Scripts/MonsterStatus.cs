@@ -7,6 +7,7 @@ public enum MonsterStatus
     idle,
     walk,
     attack,
+    hurt,
     happy,
     ko
 }

@@ -52,8 +52,9 @@ public class Monster : MonoBehaviour
     }
     protected void TakeDamage()
     {       
-        health -= damagePoint;
+        currentState = MonsterStatus.hurt;
         //Animation de coup
+        health -= damagePoint;
         Debug.Log("Monster HP: " + health);
         
         if(health <= 0)
@@ -61,9 +62,9 @@ public class Monster : MonoBehaviour
             health = 0f;
             //Animation de mort
             currentState = MonsterStatus.ko;
-            if (gameObject.tag=="ennemy")
+            if (gameObject.tag == "ennemy")
             { 
-                gameObject.tag="KO"; 
+                gameObject.tag = "KO"; 
             }
         }
                 
@@ -81,9 +82,9 @@ public class Monster : MonoBehaviour
             damagePoint = 0f;
             //Animation de joie
             currentState = MonsterStatus.happy;
-            if (gameObject.tag=="Enemy")
+            if (gameObject.tag == "Enemy")
             { 
-                gameObject.tag="Happy"; 
+                gameObject.tag = "Happy"; 
             }
         }
     }
