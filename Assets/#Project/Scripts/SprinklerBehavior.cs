@@ -6,8 +6,13 @@ public class SprinklerBehavior : MonoBehaviour
 {
     public GameObject waterPrefab;
     public Transform waterOriginTransform;
+    private SpriteRenderer spriteR;
     public float waterSpeed = 0.1f;
     
+    private void Start() 
+    {
+        spriteR = GetComponent<SpriteRenderer>(); 
+    }
     public void Water() 
     {
         GameObject newWater = Instantiate(waterPrefab, waterOriginTransform.position, waterOriginTransform.rotation);

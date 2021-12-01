@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public bool sprinklerOn;
     public bool canonOn;
     public Animator animator;
-    public SpriteRenderer spriteR;
+
    
     [SerializeField] private float speed = 10.0f;
 
@@ -114,34 +114,30 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    void FlipSprite(Vector2 moveImput)
+    void FlipSprite(Vector2 moveInput)
     {
         
         //FLIP ANIMATION!
         
-        if(moveImput.x < 0)
+        if(moveInput.x < 0)
         {
             if(animator != null)
             {
                 animator.SetBool("turnRight", false);
+                canon.Flip();
                 //animation à flip!
             }
-            else
-            {
-                spriteR.flipX = true;
-            }
+
         }
-        else if(moveImput.x > 0)
+        else if(moveInput.x > 0)
         {
             if(animator != null)
             {
                 animator.SetBool("turnRight", true);
+                canon.Flip();
                 //animation à flip!
             }
-            else
-            {
-                spriteR.flipX = false;
-            }
+  
         }
     }
 }
