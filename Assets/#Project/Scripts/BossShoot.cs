@@ -25,11 +25,15 @@ public class BossShoot : MonoBehaviour
 
     private void OnTriggerExit(Collider other) 
     {
+        // Destroy(seeds[seeds.Count-1].gameObject);
+        // seeds.RemoveAt(seeds.Count-1);
+    
         for(int i = 0; i < seeds.Count; i++)
         {
             Destroy(seeds[i]);
         }
-        seeds.Clear();
-        
+        //seeds.Clear();
     }
+    //Systeme de Pool -> moins couteux
+    
 }

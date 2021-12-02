@@ -25,11 +25,8 @@ public class SeedShoot : MonoBehaviour
 
     private void OnTriggerExit(Collider other) 
     {
-        for(int i = 0; i < seeds.Count; i++)
-        {
-            Destroy(seeds[i]);
-        }
-        seeds.Clear();
-        
+        Destroy(seeds[seeds.Count-1].gameObject);
+        seeds.RemoveAt(seeds.Count-1);
+        //seeds.Clear();
     }
 }
