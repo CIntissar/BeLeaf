@@ -123,8 +123,9 @@ public class PlayerController : MonoBehaviour
         {
             if(animator != null)
             {
-                animator.SetBool("turnRight", false);
-                canon.Flip();
+                animator.SetBool("turnRight", true);
+                canon.Flip(true);
+                sprinkle.Flip(true);
                 //animation à flip!
             }
 
@@ -133,8 +134,9 @@ public class PlayerController : MonoBehaviour
         {
             if(animator != null)
             {
-                animator.SetBool("turnRight", true);
-                canon.Flip();
+                animator.SetBool("turnRight", false);
+                canon.Flip(false);
+                sprinkle.Flip(false);
                 //animation à flip!
             }
   

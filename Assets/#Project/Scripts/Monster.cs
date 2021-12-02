@@ -16,14 +16,15 @@ public class Monster : MonoBehaviour
     [HideInInspector]
     public int indexNextDestination = 0;
 
-    public SeedShoot seedShoot;
    
-    private Coroutine co;
+    private protected Coroutine co;
 
     public float health = 5f;
     protected float damagePoint;
     public float happiness = 0f;
+    public float happinessMax = 5f;
     protected float healingPoint;
+    public SeedShoot seedShoot;
     protected PlayerStatus playerStatus;
 
     void Start()
@@ -57,6 +58,7 @@ public class Monster : MonoBehaviour
         health -= damagePoint;
         Debug.Log("Monster HP: " + health);
         
+        
         if(health <= 0)
         {
             health = 0f;
@@ -67,6 +69,7 @@ public class Monster : MonoBehaviour
                 gameObject.tag = "KO"; 
             }
         }
+        currentState = MonsterStatus.hurt; 
                 
     }
     protected void HealByPlayer()
@@ -75,9 +78,9 @@ public class Monster : MonoBehaviour
         //Animation de coup
         Debug.Log("Monster status: " + happiness);
 
-        if(happiness >= 5)
+        if(happiness >= happinessMax)
         {
-            happiness = 5f;
+            happiness = happinessMax;
             health = 5f;
             damagePoint = 0f;
             //Animation de joie
@@ -112,6 +115,7 @@ public class Monster : MonoBehaviour
         */
         TakeDamage();
         HealByPlayer();
+        
     }
 
 }

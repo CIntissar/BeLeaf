@@ -213,7 +213,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: a24b1ab998c9cea4484cc4a5fd711fb7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2269,7 +2269,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: aaf5d36fe936f44488a950a8e7c2a2ea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2643,6 +2643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 895093473dec1854e971b6132ea24a38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nameScene: BossScene
 --- !u!65 &515395804
 BoxCollider:
   m_ObjectHideFlags: 0

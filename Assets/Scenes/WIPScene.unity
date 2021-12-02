@@ -443,10 +443,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26171c1e676a8a94fa5baee11bf3ff26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentState: 0
   agent: {fileID: 300474353}
   targetCharacter: {fileID: 1993542205}
   actualDestination: {x: 0, y: 0, z: 0}
   indexNextDestination: 0
+  health: 5
+  happiness: 0
+  happinessMax: 5
   seedShoot: {fileID: 0}
   targetPoints:
   - {fileID: 155429610}
@@ -629,7 +633,6 @@ MonoBehaviour:
   seedOriginTransform: {fileID: 656165290}
   seedSpeed: 2
   delay: 1
-  deathDelay: 2
 --- !u!54 &1008556414
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -859,10 +862,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb8460dd8ef73d4fb753228785b0cd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentState: 0
   agent: {fileID: 1124184179}
   targetCharacter: {fileID: 1993542205}
   actualDestination: {x: 0, y: 0, z: 0}
   indexNextDestination: 0
+  health: 5
+  happiness: 0
+  happinessMax: 5
   seedShoot: {fileID: 1008556412}
 --- !u!195 &1124184179
 NavMeshAgent:
@@ -1477,7 +1484,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2d3dcaf4e0477749acef0317ccd2cdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprinkle: {fileID: 0}
+  canon: {fileID: 0}
   isPaused: 0
+  sprinklerOn: 0
+  canonOn: 0
+  animator: {fileID: 0}
   speed: 5
 --- !u!135 &1993542210
 SphereCollider:

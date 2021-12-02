@@ -28,6 +28,21 @@ public class SprinklerBehavior : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-
+    public void Flip(bool flipping)
+    {
+        Vector3 position = transform.localPosition;
+        if(flipping)
+        {
+            spriteR.flipX = true;
+            position.x = - 0.3f;
+            transform.localPosition = position;
+        }
+        else
+        {
+            spriteR.flipX = false;
+            position.x = 0.3f;
+            transform.localPosition = position;
+        }
+    }
 
 }

@@ -20,11 +20,20 @@ public class CanonBehavior : MonoBehaviour
         bulletRigidbody.velocity = feedOriginTransform.right * feedSpeed;
     }
 
-    public void Flip()
+    public void Flip(bool flipping)
     {
-        spriteR.flipX = !spriteR.flipX;
-        Vector3 scale = transform.localScale;
-        scale.x *= -1;
-        transform.localScale = scale;
+        Vector3 position = transform.localPosition;
+        if(flipping)
+        {
+            spriteR.flipX = true;
+            position.x = - 0.3f;
+            transform.localPosition = position;
+        }
+        else
+        {
+            spriteR.flipX = false;
+            position.x = 0.3f;
+            transform.localPosition = position;
+        }
     }
 }

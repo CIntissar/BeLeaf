@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class LevelsManager : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
+    public string nameScene;
     void Start()
     {
         this.spriteRenderer = GetComponent<SpriteRenderer>();        
@@ -30,7 +31,7 @@ public class LevelsManager : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            SceneManager.LoadScene("BossScene");
+            SceneManager.LoadScene(nameScene);
         }
     }
 
