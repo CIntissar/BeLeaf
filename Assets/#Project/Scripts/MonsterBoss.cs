@@ -4,24 +4,29 @@ using UnityEngine;
 
 public class MonsterBoss : Monster
 {
-    public SeedShoot seedShoot2;
-    public SeedShoot seedShoot3;
-    public SeedShoot seedShoot4;
+    public BossShoot seedShootUp;
+    public BossShoot seedShootLeft;
+    public BossShoot seedShootRight;
+    public BossShoot seedShootDown;
 
     void Update()
     {
-        if(co==null && Vector3.Distance(playerStatus.transform.position, transform.position)<= playerStatus.distance)
+        if(Vector3.Distance(playerStatus.transform.position, transform.position)<= playerStatus.distance)
         {
+            Debug.Log("coucou");
             //active animation attack
-            co = StartCoroutine(seedShoot.MonsterShoot());
-            // co = StartCoroutine(seedShoot2.MonsterShoot());
-            // co = StartCoroutine(seedShoot3.MonsterShoot());
-            // co = StartCoroutine(seedShoot4.MonsterShoot());
+            if(co==null)
+            {
+                co = StartCoroutine(seedShootUp.MonsterShoot());
+                co = StartCoroutine(seedShootLeft.MonsterShoot());
+                co = StartCoroutine(seedShootRight.MonsterShoot());
+                co = StartCoroutine(seedShootDown.MonsterShoot());
+            }
         }
-        if(co!=null && Vector3.Distance(playerStatus.transform.position, transform.position) > playerStatus.distance)
+        else
         {
             //stop animation -> retour idle
-            StopCoroutine(co);
+            StopAllCoroutines();
             co =null;
         }
     }

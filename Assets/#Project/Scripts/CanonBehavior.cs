@@ -26,14 +26,13 @@ public class CanonBehavior : MonoBehaviour
         if(flipping)
         {
             spriteR.flipX = true;
-            position.x = - 0.3f;
-            transform.localPosition = position;
+            position.x = - 0.3f;   
         }
         else
         {
             spriteR.flipX = false;
             position.x = 0.3f;
-            transform.localPosition = position;
         }
+        transform.localPosition = position;
     }
 }

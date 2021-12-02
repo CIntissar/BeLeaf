@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c3f6232cde29ff4985baf8e254cff74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCharacter: {fileID: 0}
+  targetCharacter: {fileID: 3642242142272184856, guid: af4142534098ed341bb81ae67f42977c, type: 3}
   turn_speed: 5
 --- !u!1 &8430543630181227493
 GameObject:
@@ -345,12 +345,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: 0
   agent: {fileID: 8430543631037899231}
-  targetCharacter: {fileID: 0}
+  targetCharacter: {fileID: 3642242142272184856, guid: af4142534098ed341bb81ae67f42977c, type: 3}
   actualDestination: {x: 0, y: 0, z: 0}
   indexNextDestination: 0
-  seedShoot: {fileID: 8430543630181227498}
   health: 5
   happiness: 0
+  happinessMax: 5
+  seedShoot: {fileID: 8430543630181227498}
 --- !u!114 &8430543631037899201
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -111,7 +111,6 @@ public class PlayerController : MonoBehaviour
             */
         }
 
-
     }
 
     void FlipSprite(Vector2 moveInput)

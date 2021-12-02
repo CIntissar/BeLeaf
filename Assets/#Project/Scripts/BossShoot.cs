@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SeedShoot : MonoBehaviour
+public class BossShoot : MonoBehaviour
 {
 
     public List<GameObject> seeds = new List<GameObject>(); // réserve de Seeds
