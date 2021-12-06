@@ -10,6 +10,7 @@ TagManager:
   - Water
   - KO
   - Happy
+  - Background
   layers:
   - Default
   - TransparentFX
