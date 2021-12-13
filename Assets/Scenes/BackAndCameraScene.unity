@@ -12886,7 +12886,7 @@ PrefabInstance:
     - target: {fileID: 8430543631037899202, guid: d7b8d83bde7e4104e927eef216ebdfd5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 6578b68fdfa1d9441a0224c6eb99a6fe, type: 2}
+      objectReference: {fileID: 2100000, guid: 715710f087be82142a501fc4cddd5d76, type: 2}
     - target: {fileID: 8430543631037899225, guid: d7b8d83bde7e4104e927eef216ebdfd5, type: 3}
       propertyPath: m_Name
       value: still_Plant
