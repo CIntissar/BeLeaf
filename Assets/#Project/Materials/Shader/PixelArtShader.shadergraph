@@ -1173,7 +1173,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector2MaterialSlot",
     "m_ObjectId": "ac33ae5000134ee38240447e49fc8713",
     "m_Id": 0,
-    "m_DisplayName": "PixelSample",
+    "m_DisplayName": "PixelSamples",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",

@@ -13,6 +13,9 @@ public class BossShoot : MonoBehaviour
 
     public IEnumerator MonsterShoot()
     {
+        yield return new WaitForSeconds(10);
+        //animation
+        //music
         while(true)
         {
             newSeed = Instantiate(seedPrefab, seedOriginTransform.position, seedOriginTransform.rotation);

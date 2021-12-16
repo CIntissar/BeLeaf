@@ -9831,7 +9831,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 715710f087be82142a501fc4cddd5d76, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9873,11 +9873,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7360f9baad0dbed42af3ce42a7f72d3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seeds: []
   seedPrefab: {fileID: 7066727316444431048, guid: 22ee16e01c7372446990a5ad753f358e, type: 3}
   seedOriginTransform: {fileID: 2123804879}
   seedSpeed: 2
   delay: 1
+  lifetime: 5
 --- !u!1 &840646178
 GameObject:
   m_ObjectHideFlags: 0
@@ -9990,50 +9990,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &865059372
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 865059374}
-  - component: {fileID: 865059373}
-  m_Layer: 0
-  m_Name: changeDistance
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!65 &865059373
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 865059372}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5.5, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!4 &865059374
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 865059372}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -5.87}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &916534427
 GameObject:
@@ -10182,7 +10138,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 715710f087be82142a501fc4cddd5d76, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10324,7 +10280,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 715710f087be82142a501fc4cddd5d76, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10366,11 +10322,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7360f9baad0dbed42af3ce42a7f72d3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seeds: []
   seedPrefab: {fileID: 7066727316444431048, guid: 22ee16e01c7372446990a5ad753f358e, type: 3}
   seedOriginTransform: {fileID: 583471104}
   seedSpeed: 2
   delay: 1
+  lifetime: 5
 --- !u!1 &1211714419
 GameObject:
   m_ObjectHideFlags: 0
@@ -12738,11 +12694,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7360f9baad0dbed42af3ce42a7f72d3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seeds: []
   seedPrefab: {fileID: 7066727316444431048, guid: 22ee16e01c7372446990a5ad753f358e, type: 3}
   seedOriginTransform: {fileID: 1484250155}
   seedSpeed: 2
   delay: 1
+  lifetime: 5
 --- !u!54 &1816833583
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12778,7 +12734,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 715710f087be82142a501fc4cddd5d76, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12875,7 +12831,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 715710f087be82142a501fc4cddd5d76, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12917,11 +12873,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7360f9baad0dbed42af3ce42a7f72d3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seeds: []
   seedPrefab: {fileID: 7066727316444431048, guid: 22ee16e01c7372446990a5ad753f358e, type: 3}
   seedOriginTransform: {fileID: 1211714420}
   seedSpeed: 2
   delay: 1
+  lifetime: 5
 --- !u!1 &2123804878
 GameObject:
   m_ObjectHideFlags: 0
@@ -13003,6 +12959,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3642242142272184857, guid: af4142534098ed341bb81ae67f42977c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2409159706596575678, guid: c67eb55d0244d2e4aaa1e7af5a26b029, type: 3}
     - target: {fileID: 3642242142272184858, guid: af4142534098ed341bb81ae67f42977c, type: 3}
       propertyPath: m_Camera
       value: 
