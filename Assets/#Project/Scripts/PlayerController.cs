@@ -66,7 +66,11 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isWalking",true);
             if(moveInput.x < 0)
             {
-                FlipSprite();
+                FlipSprite(true);
+            }
+            else if(moveInput.x > 0)
+            {
+                FlipSprite(false);
             }
         }
         else
@@ -132,11 +136,11 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    void FlipSprite(/*Vector2 moveInput*/)
+    void FlipSprite(bool isLeft)
     {
         if(animator != null)
         {
-            spriteR.flipX = true;
+            spriteR.flipX = isLeft;
             canon.Flip(true);
             sprinkle.Flip(true);
         }
