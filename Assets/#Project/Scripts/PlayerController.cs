@@ -57,13 +57,17 @@ public class PlayerController : MonoBehaviour
         Vector2 moveInput = playerInput.Gameplay.Move.ReadValue<Vector2>();
         Vector3 movement = new Vector3(moveInput.x, 0 , moveInput.y);
         rb.velocity = movement * speed;
-        FlipSprite(moveInput);
+        //FlipSprite(moveInput);
 
         print(rb.velocity);
 
         if(rb.velocity != Vector3.zero )
         {
             animator.SetBool("isWalking",true);
+            if(moveInput.x < 0)
+            {
+                FlipSprite();
+            }
         }
         else
         {
@@ -128,29 +132,34 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    void FlipSprite(Vector2 moveInput)
+    void FlipSprite(/*Vector2 moveInput*/)
     {
-          
-        if(moveInput.x < 0)
+        if(animator != null)
         {
-            if(animator != null)
-            {
-                spriteR.flipX = true;
-                canon.Flip(true);
-                sprinkle.Flip(true);
-            }
-
+            spriteR.flipX = true;
+            canon.Flip(true);
+            sprinkle.Flip(true);
         }
-        else if(moveInput.x > 0)
-        {
-            if(animator != null)
-            {
-                spriteR.flipX = false;
-                canon.Flip(false);
-                sprinkle.Flip(false);
+        // if(moveInput.x < 0)
+        // {
+        //     if(animator != null)
+        //     {
+        //         spriteR.flipX = true;
+        //         canon.Flip(true);
+        //         sprinkle.Flip(true);
+        //     }
 
-            }
-        }
+        // }
+        // else if(moveInput.x > 0)
+        // {
+        //     if(animator != null)
+        //     {
+        //         spriteR.flipX = false;
+        //         canon.Flip(false);
+        //         sprinkle.Flip(false);
+
+        //     }
+        // }
 
     }
 }
