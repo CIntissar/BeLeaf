@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public bool sprinklerOn;
     public bool canonOn;
     public Animator animator;
-    public SpriteRenderer spriteR;   
+    public SpriteRenderer spriteR; 
 
    
     [SerializeField] private float speed = 10.0f;
@@ -20,7 +20,8 @@ public class PlayerController : MonoBehaviour
     private void Awake() 
     {
         playerInput = new PlayerActions();
-        rb = GetComponent<Rigidbody>();            
+        rb = GetComponent<Rigidbody>();    
+
     }
     
     private void Start() 
@@ -57,6 +58,18 @@ public class PlayerController : MonoBehaviour
         Vector3 movement = new Vector3(moveInput.x, 0 , moveInput.y);
         rb.velocity = movement * speed;
         FlipSprite(moveInput);
+
+        print(rb.velocity);
+
+        if(rb.velocity != Vector3.zero )
+        {
+            animator.SetBool("isWalking",true);
+        }
+        else
+        {
+            animator.SetBool("isWalking",false);
+        }
+
     }
 
     private void Update() 
@@ -112,15 +125,6 @@ public class PlayerController : MonoBehaviour
             */
         }
 
-        // A CHANGER POUR LE WALKING ANIMATION
-        // if(playerInput.Gameplay.Move.triggered)
-        // {
-        //     animator.SetBool("walking", true);  
-        // }
-        // else
-        // {
-        //     animator.SetBool("walking", false);  
-        // }
 
     }
 
@@ -134,7 +138,6 @@ public class PlayerController : MonoBehaviour
                 spriteR.flipX = true;
                 canon.Flip(true);
                 sprinkle.Flip(true);
-
             }
 
         }

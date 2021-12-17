@@ -433,6 +433,7 @@ MonoBehaviour:
   sprinklerOn: 0
   canonOn: 0
   animator: {fileID: 3642242142272185056}
+  spriteR: {fileID: 0}
   speed: 5
 --- !u!114 &3642242142272184860
 MonoBehaviour:
@@ -464,8 +465,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.45, y: 1.0000002, z: 0.20000005}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.53, y: 1.55, z: 0}
+  m_Center: {x: 0.0375, y: 0, z: 0}
 --- !u!54 &3642242142272184862
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -493,8 +494,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.45, y: 1.0000002, z: 0}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.53, y: 1.55, z: 0}
+  m_Center: {x: 0.0375, y: 0, z: 0}
 --- !u!95 &3642242142272185056
 Animator:
   serializedVersion: 3
