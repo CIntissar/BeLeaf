@@ -106,7 +106,7 @@ public class Monster : MonoBehaviour
             damagePoint = 1f;
             Destroy(other.gameObject);
         }
-        /*else if(|| other.CompareTag("Cut"))
+        /*else if(other.CompareTag("Cut")) // Hitbox -> EmptyGameObject!
         {
             healingPoint += 1f;
             damagePoint += 2f;

@@ -41,6 +41,5 @@ public class BossShoot : MonoBehaviour
         // }
         //seeds.Clear();
     }
-    //Systeme de Pool -> moins couteux
     
 }

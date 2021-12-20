@@ -6,11 +6,17 @@ public class PlayerController : MonoBehaviour
 {
     private PlayerActions playerInput;
     public SprinklerBehavior sprinkle;
+    public CutterBehavior cutter; // à utiliser pour le cutter
     public CanonBehavior canon;
+
     private Rigidbody rb;
+
     public bool isPaused = false; // pour l'UI
-    public bool sprinklerOn;
-    public bool canonOn;
+
+    public bool sprinklerOn; // 1
+    public bool cutterOn; // 2
+    public bool canonOn; // 3
+
     public Animator animator;
     public SpriteRenderer spriteR; 
 
@@ -57,9 +63,7 @@ public class PlayerController : MonoBehaviour
         Vector2 moveInput = playerInput.Gameplay.Move.ReadValue<Vector2>();
         Vector3 movement = new Vector3(moveInput.x, 0 , moveInput.y);
         rb.velocity = movement * speed;
-        //FlipSprite(moveInput);
 
-        print(rb.velocity);
 
         if(rb.velocity != Vector3.zero )
         {
@@ -98,6 +102,8 @@ public class PlayerController : MonoBehaviour
             sprinklerOn = true;            
             transform.GetChild(1).gameObject.SetActive(false); // canon
             canonOn = false;
+            //transform.GetChild(2).gameObject.SetActive(true); // canon
+            //cutterOn = true;
         }
         // WEAPON - CANON
         if(playerInput.Gameplay.Weapon_Canon.triggered)
@@ -107,11 +113,23 @@ public class PlayerController : MonoBehaviour
             canonOn = true;
             transform.GetChild(0).gameObject.SetActive(false); // sprinkler
             sprinklerOn = false; 
+            //transform.GetChild(2).gameObject.SetActive(true); // canon
+            //cutterOn = true;
         }
-        // WEAPON - CUTTER
+        /* WEAPON - CUTTER
+        if(playerInput.Gameplay.Weapon_Cutter.triggered)
+        {
+            Debug.Log("SLAY!");
+            transform.GetChild(1).gameObject.SetActive(true); // canon
+            canonOn = false;
+            transform.GetChild(0).gameObject.SetActive(false); // sprinkler
+            sprinklerOn = false; 
+            transform.GetChild(2).gameObject.SetActive(true); // canon
+            cutterOn = true;
+        }
 
-        // ...
 
+        */
         // WEAPON - INTERACTION
         if(playerInput.Gameplay.Interaction.triggered)
         {
@@ -125,6 +143,14 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("Feed in your face!");
                 canon.Fire();
             }
+            /*
+            else  if(cutterOn == true)
+            {
+                Debug.Log("Slash in your face!");
+
+            }
+
+            */
 
             
             /*DO A LOT OF THINGS XDDDD
@@ -143,27 +169,8 @@ public class PlayerController : MonoBehaviour
             spriteR.flipX = isLeft;
             canon.Flip(true);
             sprinkle.Flip(true);
+            //cutter.Flip(true);
         }
-        // if(moveInput.x < 0)
-        // {
-        //     if(animator != null)
-        //     {
-        //         spriteR.flipX = true;
-        //         canon.Flip(true);
-        //         sprinkle.Flip(true);
-        //     }
-
-        // }
-        // else if(moveInput.x > 0)
-        // {
-        //     if(animator != null)
-        //     {
-        //         spriteR.flipX = false;
-        //         canon.Flip(false);
-        //         sprinkle.Flip(false);
-
-        //     }
-        // }
 
     }
 }
