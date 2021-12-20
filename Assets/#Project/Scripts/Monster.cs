@@ -16,7 +16,7 @@ public class Monster : MonoBehaviour
     [HideInInspector]
     public int indexNextDestination = 0;
 
-   
+
     private protected Coroutine co;
 
     public float health = 5f;
@@ -27,8 +27,11 @@ public class Monster : MonoBehaviour
     public SeedShoot seedShoot;
     protected PlayerStatus playerStatus;
 
+
+
     void Start()
     {
+        
         agent = GetComponent<NavMeshAgent>();
         playerStatus = FindObjectOfType<PlayerStatus>();
         currentState = MonsterStatus.idle;
