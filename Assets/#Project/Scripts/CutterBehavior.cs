@@ -19,16 +19,17 @@ public class CutterBehavior : MonoBehaviour
     public void Flip(bool flipping)
     {
         Vector3 position = transform.localPosition;
-        if(flipping)
+        if(flipping && spriteR != null)
         {
             spriteR.flipX = true;
-            position.x = - 0.3f;   
+            position.x = - 0.35f;   
+            transform.localPosition = position;
         }
-        else
+        else if(!flipping && spriteR != null)
         {
             spriteR.flipX = false;
-            position.x = 0.3f;
+            position.x = 0.35f;
+            transform.localPosition = position;
         }
-        transform.localPosition = position;
     }
 }

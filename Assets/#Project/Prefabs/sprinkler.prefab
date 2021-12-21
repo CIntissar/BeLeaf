@@ -98,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waterPrefab: {fileID: 7066727316444431048, guid: 22ee16e01c7372446990a5ad753f358e, type: 3}
   waterOriginTransform: {fileID: 6073174283576611350}
-  waterSpeed: 0.1
+  waterSpeed: 0.5
 --- !u!1 &6073174283576611351
 GameObject:
   m_ObjectHideFlags: 0

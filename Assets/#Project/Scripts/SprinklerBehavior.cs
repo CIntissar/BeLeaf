@@ -18,6 +18,14 @@ public class SprinklerBehavior : MonoBehaviour
         GameObject newWater = Instantiate(waterPrefab, waterOriginTransform.position, waterOriginTransform.rotation);
         Rigidbody bulletRigidbody = newWater.GetComponent<Rigidbody>();
         bulletRigidbody.velocity = waterOriginTransform.right * waterSpeed;
+        if(spriteR.flipX != true)
+        {
+            bulletRigidbody.velocity = waterOriginTransform.right * waterSpeed;
+        }
+        else
+        {
+            bulletRigidbody.velocity = -waterOriginTransform.right * waterSpeed;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -31,16 +39,16 @@ public class SprinklerBehavior : MonoBehaviour
     public void Flip(bool flipping)
     {
         Vector3 position = transform.localPosition;
-        if(flipping)
+        if(flipping && spriteR != null)
         {
             spriteR.flipX = true;
-            position.x = - 0.3f;
+            position.x = - 0.35f;
             transform.localPosition = position;
         }
-        else
+        else if(!flipping && spriteR != null)
         {
             spriteR.flipX = false;
-            position.x = 0.3f;
+            position.x = 0.35f;
             transform.localPosition = position;
         }
     }

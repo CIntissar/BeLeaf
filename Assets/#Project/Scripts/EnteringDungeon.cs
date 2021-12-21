@@ -19,7 +19,7 @@ public class EnteringDungeon : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other) 
     {
-        if(other.CompareTag("Player"))
+        if(other.CompareTag("Player") && GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
         {
             FadeToLevel(levelToLoad);
         }

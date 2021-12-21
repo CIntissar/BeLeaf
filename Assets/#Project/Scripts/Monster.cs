@@ -27,11 +27,8 @@ public class Monster : MonoBehaviour
     public SeedShoot seedShoot;
     protected PlayerStatus playerStatus;
 
-
-
     void Start()
     {
-        
         agent = GetComponent<NavMeshAgent>();
         playerStatus = FindObjectOfType<PlayerStatus>();
         currentState = MonsterStatus.idle;
@@ -43,11 +40,12 @@ public class Monster : MonoBehaviour
         if(co==null && Vector3.Distance(playerStatus.transform.position, transform.position)<= playerStatus.distance)
         {
             //active animation attack
+            currentState = MonsterStatus.attack;
             co = StartCoroutine(seedShoot.MonsterShoot());
         }
-        if(co!=null && Vector3.Distance(playerStatus.transform.position, transform.position) > playerStatus.distance)
+        else if(co!=null && Vector3.Distance(playerStatus.transform.position, transform.position) > playerStatus.distance)
         {
-            //stop animation -> retour idle
+            currentState = MonsterStatus.idle;
             StopCoroutine(co);
             co =null;
         }
@@ -102,22 +100,27 @@ public class Monster : MonoBehaviour
             healingPoint = 2f;
             damagePoint = 0f;
             Destroy(other.gameObject);
+            TakeDamage();
+            HealByPlayer();
         }
         else if(other.CompareTag("Feed")) 
         {
             healingPoint = 2f;
             damagePoint = 1f;
             Destroy(other.gameObject);
+            TakeDamage();
+            HealByPlayer();
         }
         /*else if(other.CompareTag("Cut")) // Hitbox -> EmptyGameObject!
         {
             healingPoint += 1f;
             damagePoint += 2f;
             Destroy(other.gameObject);
+            TakeDamage();
+            HealByPlayer();
         }
         */
-        TakeDamage();
-        HealByPlayer();
+
         
     }
 

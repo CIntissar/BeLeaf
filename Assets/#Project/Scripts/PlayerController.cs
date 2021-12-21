@@ -167,10 +167,11 @@ public class PlayerController : MonoBehaviour
         if(animator != null)
         {
             spriteR.flipX = isLeft;
-            canon.Flip(true);
-            sprinkle.Flip(true);
-            //cutter.Flip(true);
+            canon.Flip(isLeft);
+            sprinkle.Flip(isLeft);
+            //cutter.Flip(isLeft);
         }
+        
 
     }
 }

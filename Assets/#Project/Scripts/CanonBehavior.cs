@@ -17,22 +17,39 @@ public class CanonBehavior : MonoBehaviour
     {
         GameObject newFeed = Instantiate(feedPrefab, feedOriginTransform.position, feedOriginTransform.rotation);
         Rigidbody bulletRigidbody = newFeed.GetComponent<Rigidbody>();
-        bulletRigidbody.velocity = feedOriginTransform.right * feedSpeed;
-    }
-
-    public void Flip(bool flipping)
-    {
-        Vector3 position = transform.localPosition;
-        if(flipping)
+        if(spriteR.flipX != true)
         {
-            spriteR.flipX = true;
-            position.x = - 0.3f;   
+            bulletRigidbody.velocity = feedOriginTransform.right * feedSpeed;
         }
         else
         {
-            spriteR.flipX = false;
-            position.x = 0.3f;
+            bulletRigidbody.velocity = -feedOriginTransform.right * feedSpeed;
         }
-        transform.localPosition = position;
+        
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Enemy"))
+        {
+            Destroy(this.gameObject);
+        }
+    }
+    public void Flip(bool flipping)
+    {
+        Vector3 position = transform.localPosition;
+        if(flipping && spriteR != null)
+        {
+            spriteR.flipX = true;
+            position.x = - 0.35f;   
+            transform.localPosition = position;
+        }
+        else if(!flipping && spriteR != null)
+        {
+            spriteR.flipX = false;
+            position.x = 0.35f;
+            transform.localPosition = position;
+        }
+
     }
 }
+                              

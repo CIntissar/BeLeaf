@@ -13,7 +13,7 @@ public class BossShoot : MonoBehaviour
 
     public IEnumerator MonsterShoot()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(5);
         //animation
         //music
         while(true)
